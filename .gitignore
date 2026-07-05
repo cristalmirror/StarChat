@@ -1,6 +1,6 @@
 # Carpeta de compilación (binarios, artefactos intermedios, todo lo pesado)
 /target
-
+server/target
 # Si usás variables de entorno para config (DB_URL, REDIS_URL, etc.)
 .env
 
