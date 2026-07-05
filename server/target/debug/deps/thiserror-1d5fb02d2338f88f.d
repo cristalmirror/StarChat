@@ -1,0 +1,14 @@
+/home/cristalmirror/StarChat/server/target/debug/deps/thiserror-1d5fb02d2338f88f.d: /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/cristalmirror/StarChat/server/target/debug/build/thiserror-4edeecf0dd90c32f/out/private.rs
+
+/home/cristalmirror/StarChat/server/target/debug/deps/libthiserror-1d5fb02d2338f88f.rlib: /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/cristalmirror/StarChat/server/target/debug/build/thiserror-4edeecf0dd90c32f/out/private.rs
+
+/home/cristalmirror/StarChat/server/target/debug/deps/libthiserror-1d5fb02d2338f88f.rmeta: /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/cristalmirror/StarChat/server/target/debug/build/thiserror-4edeecf0dd90c32f/out/private.rs
+
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs:
+/home/cristalmirror/StarChat/server/target/debug/build/thiserror-4edeecf0dd90c32f/out/private.rs:
+
+# env-dep:OUT_DIR=/home/cristalmirror/StarChat/server/target/debug/build/thiserror-4edeecf0dd90c32f/out

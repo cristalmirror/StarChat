@@ -1,0 +1,14 @@
+/home/cristalmirror/StarChat/server/target/debug/deps/serde-9a2ec647b593d84c.d: /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/cristalmirror/StarChat/server/target/debug/build/serde-b7d6bd1946fd92ab/out/private.rs
+
+/home/cristalmirror/StarChat/server/target/debug/deps/libserde-9a2ec647b593d84c.rlib: /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/cristalmirror/StarChat/server/target/debug/build/serde-b7d6bd1946fd92ab/out/private.rs
+
+/home/cristalmirror/StarChat/server/target/debug/deps/libserde-9a2ec647b593d84c.rmeta: /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/cristalmirror/StarChat/server/target/debug/build/serde-b7d6bd1946fd92ab/out/private.rs
+
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/cristalmirror/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/cristalmirror/StarChat/server/target/debug/build/serde-b7d6bd1946fd92ab/out/private.rs:
+
+# env-dep:OUT_DIR=/home/cristalmirror/StarChat/server/target/debug/build/serde-b7d6bd1946fd92ab/out

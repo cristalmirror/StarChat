@@ -1,0 +1,22 @@
+# Carpeta de compilación (binarios, artefactos intermedios, todo lo pesado)
+/target
+
+# Si usás variables de entorno para config (DB_URL, REDIS_URL, etc.)
+.env
+
+# Archivos de configuración local que no querés versionar
+config.local.toml
+
+# Archivos de editor/IDE (opcional, según qué uses)
+.vscode/
+.idea/
+*.swp
+
+# macOS
+.DS_Store
+
+# Emacs
+*~
+\#*\#
+.\#*
+.dir-locals.el
