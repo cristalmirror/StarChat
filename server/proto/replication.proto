@@ -1,0 +1,22 @@
+syntax = "proto3";
+package replication;
+
+service ServerLink {
+
+        //a server "owner" sernd a reply of the a message to backup
+        rpc ReplicateMessage(ReplicateRequest) returns (ReplicateAck);
+}
+
+message ReplicateRequest{
+        string conversation_id = 1;
+        string message_id = 2;
+        string sender_id = 3;
+        string content = 4;
+        string created_at = 5; 
+}
+
+message ReplicateAck {
+
+        bool success = true
+        string detail = 2;
+}

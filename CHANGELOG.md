@@ -14,6 +14,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 -
 
 ### Fixed
+
+## [0.0.3] - 2026-07-05
+
+### Added
+- Re-added `tonic` (unpinned version, resolving to a release newer than 0.11.0) and `prost` as dependencies, now that a compatible version no longer conflicts with `axum`'s dependency tree
+- `tonic-build` added to `[build-dependencies]`
+- `proto/replication.proto` defining a `ServerLink` service with a `ReplicateMessage` RPC, `ReplicateRequest`, and `ReplicateAck` messages
+- `build.rs` using `tonic_build::compile_protos` to generate Rust code from the `.proto` definition at build time
+
+### Fixed
+- Updated local Rust toolchain via `rustup update stable` to satisfy minimum Rust version requirements from `redis` (1.88) and transitive `icu_*` crates (1.86), which were blocking `cargo build` on a secondary machine
 -
 ## [0.0.2] - 2026-07-05
 
