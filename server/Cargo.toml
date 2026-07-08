@@ -22,6 +22,8 @@ dotenvy = "0.15.7"
 anyhow = "1.0.103"
 thiserror = "2.0.18"
 axum = { version = "0.8.9", features = ["ws"] }
+tonic-prost = "0.14.6"
 
 [build-dependencies]
 tonic-build = "0.14.6"
+tonic-prost-build = "0.14.6"

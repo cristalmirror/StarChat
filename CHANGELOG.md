@@ -15,6 +15,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+## [0.0.4] - 2026-07-08
+
+### Added
+- Completed JSON-based event handling in `client_connection_manager.rs`: incoming WebSocket text is parsed as `ClientEvent`, matched, and answered with a serialized `ServerEvent` (`Ack` or `Error`)
+- `proto/replication.proto`: defined `ServerLink` gRPC service with `ReplicateMessage` RPC, `ReplicateRequest`, and `ReplicateAck` messages
+- `build.rs` to compile the `.proto` file at build time
+- `server_connection_manager.rs`: implemented the `ServerLink` trait (server-side gRPC handler) for `MyServerLink`, returning a `ReplicateAck` on `replicate_message`
+- `main.rs`: now runs both the HTTP/WebSocket server (axum, port 3000) and the gRPC server (tonic, port 50051) concurrently via `tokio::join!`
+
+### Changed
+- Switched proto compilation from `tonic-build::compile_protos` (removed in newer tonic-build versions) to `tonic-prost-build::compile_protos`, following the split of protobuf codegen into its own crate
+
+### Fixed
+- Renamed `build_proto.rs` to `build.rs` — Cargo only recognizes that exact filename as a build script, which is why `OUT_DIR` was previously undefined
+- Corrected `proto/replication.proto`: `ReplicateAck.success` was declared as `bool success = true` (invalid — mixed a field value with a field number, and was missing the trailing `;`); corrected to `bool success = 1;`
+- Installed the system `protoc` compiler
+
 ## [0.0.3] - 2026-07-05
 
 ### Added

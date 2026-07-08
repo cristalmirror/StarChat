@@ -17,6 +17,6 @@ message ReplicateRequest{
 
 message ReplicateAck {
 
-        bool success = true
+        bool success = 1;
         string detail = 2;
 }
