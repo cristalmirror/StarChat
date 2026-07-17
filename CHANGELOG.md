@@ -1,67 +1,77 @@
-# Changelog
-
+Changelog
 All notable changes to this project will be documented in this file.
-
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+[Unreleased]
+Added
+Changed
+Fixed
 
-### Added
--
+[0.0.5] - 2026-07-18
+Added
+None — this release is focused on dependency alignment, build pipeline fixes, and server startup corrections.
 
-### Changed
--
+Changed
+- Upgraded `tonic` dependency from `0.11` to `0.14` in `Cargo.toml` to align with the `tonic-prost` 0.14.x ecosystem.
+- Replaced the invalid `tonic` feature `"full"` (which does not exist) with the explicit feature set `["transport", "codegen", "router"]`.
+- Switched the build script from `tonic_build::compile_protos` to `tonic_prost_build::compile_protos` in `build.rs`, since `compile_protos` was removed from `tonic-build` starting in version 0.12.
+- Removed `tonic-build = "0.11"` from `[build-dependencies]` — protobuf codegen is now handled entirely by `tonic-prost-build`.
+- Cleaned up trailing whitespace in version strings across `Cargo.toml` (e.g., `"0.14.4 "` → `"0.14.4"`).
+- Refactored `main.rs` to start both HTTP/WebSocket (axum) and gRPC (tonic) servers concurrently using `tokio::join!`, instead of blocking on the HTTP server with `.await`.
 
-### Fixed
+Fixed
+- Resolved `E0425: cannot find function compile_protos in crate tonic_build` by migrating to `tonic_prost_build::compile_protos`.
+- Resolved `failed to select a version for tonic` caused by the non-existent `"full"` feature.
+- Resolved `E0382: use of moved value` errors for `listener` and `app` in `main.rs`, caused by a duplicate `axum::serve(listener, app).await.unwrap();` call that both consumed the values and blocked the gRPC server from ever starting.
+- Corrected typo `amux::server` → `axum::serve` in `main.rs`.
+- Fixed `println!` format string that attempted to print the `http_server` future (which does not implement `Display`) instead of the `http_addr` string.
+- Fixed various typos in log messages (`gPRC` → `gRPC`, `Perss` → `Press`, `us in` → `using`, `Main funcitions` → `Main functions`).
 
-## [0.0.4] - 2026-07-08
-
-### Added
+[0.0.4] - 2026-07-08
+Added
 - Completed JSON-based event handling in `client_connection_manager.rs`: incoming WebSocket text is parsed as `ClientEvent`, matched, and answered with a serialized `ServerEvent` (`Ack` or `Error`)
 - `proto/replication.proto`: defined `ServerLink` gRPC service with `ReplicateMessage` RPC, `ReplicateRequest`, and `ReplicateAck` messages
 - `build.rs` to compile the `.proto` file at build time
 - `server_connection_manager.rs`: implemented the `ServerLink` trait (server-side gRPC handler) for `MyServerLink`, returning a `ReplicateAck` on `replicate_message`
 - `main.rs`: now runs both the HTTP/WebSocket server (axum, port 3000) and the gRPC server (tonic, port 50051) concurrently via `tokio::join!`
 
-### Changed
+Changed
 - Switched proto compilation from `tonic-build::compile_protos` (removed in newer tonic-build versions) to `tonic-prost-build::compile_protos`, following the split of protobuf codegen into its own crate
 
-### Fixed
+Fixed
 - Renamed `build_proto.rs` to `build.rs` — Cargo only recognizes that exact filename as a build script, which is why `OUT_DIR` was previously undefined
 - Corrected `proto/replication.proto`: `ReplicateAck.success` was declared as `bool success = true` (invalid — mixed a field value with a field number, and was missing the trailing `;`); corrected to `bool success = 1;`
 - Installed the system `protoc` compiler
 
-## [0.0.3] - 2026-07-05
-
-### Added
+[0.0.3] - 2026-07-05
+Added
 - Re-added `tonic` (unpinned version, resolving to a release newer than 0.11.0) and `prost` as dependencies, now that a compatible version no longer conflicts with `axum`'s dependency tree
 - `tonic-build` added to `[build-dependencies]`
 - `proto/replication.proto` defining a `ServerLink` service with a `ReplicateMessage` RPC, `ReplicateRequest`, and `ReplicateAck` messages
 - `build.rs` using `tonic_build::compile_protos` to generate Rust code from the `.proto` definition at build time
 
-### Fixed
+Fixed
 - Updated local Rust toolchain via `rustup update stable` to satisfy minimum Rust version requirements from `redis` (1.88) and transitive `icu_*` crates (1.86), which were blocking `cargo build` on a secondary machine
--
-## [0.0.2] - 2026-07-05
 
-### Added
+[0.0.2] - 2026-07-05
+Added
 - WebSocket endpoint (`/ws`) using axum's `WebSocketUpgrade` extractor
 - `models.rs` module with `ClientEvent` and `ServerEvent` enums (serde-tagged JSON) to define the client-server protocol
 - `client_connection_manager.rs` module to isolate all WebSocket connection handling, separate from `main.rs`
 - Structured message handling: incoming client text is parsed as `ClientEvent` JSON and answered with a `ServerEvent` (`Ack` or `Error`)
 - `LICENSE-server-AGPL-3.0.txt` and `LICENSE-client-MIT.txt` for dual licensing (server vs. client components)
 
-### Changed
+Changed
 - Refactored `main.rs` to only handle routing and server startup, delegating WebSocket logic to `client_connection_manager.rs`
 - Replaced plain-text WebSocket echo with JSON-based event handling
 
-### Fixed
+Fixed
 - Removed `target/` from git tracking (was committed before `.gitignore` existed) and corrected `.gitignore` path to match the actual project location (`server/` subfolder)
 - Resolved duplicate `axum` versions in the dependency tree (`0.6.20` pulled in transitively by `tonic`, conflicting with the direct `0.8.9` dependency) by removing `tonic` and `prost` until the server-to-server communication phase
-## [0.0.1] - 2026-07-05
 
-### Added
+[0.0.1] - 2026-07-05
+Added
 - Initial project setup (`cargo new`)
 - Base dependencies: tokio, axum, sqlx, redis, tonic, serde, uuid, chrono, tracing
 - Minimal axum server with `/health` endpoint

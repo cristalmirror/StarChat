@@ -9,6 +9,7 @@ mod server_connection_manager;
 use axum::{routing::get, Router, Json};
 /*seder headers*/
 use serde_json::{json, Value};
+use tokio::join;
 use client_connection_manager::ws_handler;
 use server_connection_manager::{
     replication::server_link_server::ServerLinkServer,
@@ -30,10 +31,10 @@ async fn main() {
         .route("/health", get(health_check))
         .route("/ws", get(ws_handler));
     
-
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    let http_addr = "0.0.0.0:3000";
+    let listener = tokio::net::TcpListener::bind(http_addr).await.unwrap();
     println!("[HTTP/WS] -> Listen Server: [{}]",listener.local_addr().unwrap());
-    axum::serve(listener, app).await.unwrap();
+    let http_server = axum::serve(listener, app);
 
     /*Server connections manager usin gRPC*/
     let grpc_addr = "0.0.0.0:50051".parse().unwrap();
@@ -42,6 +43,9 @@ async fn main() {
     let grpc_server = TonicServer::builder()
         .add_service(ServerLinkServer::new(MyServerLink::default()))
         .serve(grpc_addr);
+    /**/
+    println!("[ST_MAIN] <<Starting HTTP on {} and gPRC on {}>>", http_addr, grpc_addr);
 
-    let _ = tokio::join!(http_server, grpc_server);
+    println!("[ST-MAIN] -> Server init success. Perss Ctrl+C if close these Server.");
+    let _ = join!(http_server, grpc_server);
 }

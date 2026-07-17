@@ -11,7 +11,7 @@ pub mod replication {
 
 use replication::{
     server_link_server::{ServerLink, ServerLinkServer},
-    replicationRequest, ReplicationAck,
+    ReplicateRequest, ReplicateAck,
 };
 
 #[derive(Debug, Default)]
@@ -21,14 +21,14 @@ pub struct MyServerLink {}
 impl ServerLink for MyServerLink {
     async fn replicate_message(
         &self,
-        request: Request<ReplicationRequest>,)
-        -> Result<Response<ReplicationAck>, Status> {
+        request: Request<ReplicateRequest>,)
+        -> Result<Response<ReplicateAck>, Status> {
 
         /*request refactor in a ReplicationRequest*/
         let req = request.into_inner();
         println!("[Reply Resept]: conbersation_id={}, message_id={}", req.conversation_id, req.message_id);
 
-        let ack = ReplicationAck {
+        let ack = ReplicateAck {
             success: true,
             detail: "replicate".to_string(),
         };
